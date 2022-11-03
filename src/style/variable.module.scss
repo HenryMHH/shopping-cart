@@ -1,0 +1,20 @@
+// color
+$text: hsla(0, 0%, 100%, 0.9);
+$text2: #ee4d2d;
+$text3: rgba(0, 0, 0, 0.87);
+
+// font-family
+$fonts: (
+  roboto: (
+    'Roboto',
+    sans-serif,
+  ),
+  kosugiMaru: (
+    'Kosugi Maru',
+    sans-serif,
+  ),
+  notoSans: (
+    'Noto Sans TC',
+    sans-serif,
+  ),
+);

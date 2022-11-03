@@ -1,0 +1,59 @@
+@import '../../style/variable.module.scss';
+
+.item {
+  background-color: white;
+  border-radius: 4px;
+  text-align: left;
+  font-size: 12px;
+  height: 190px;
+  color: $text3;
+  cursor: pointer;
+  text-decoration: none;
+
+  .thumbnail {
+    height: 60%;
+    overflow: hidden;
+  }
+
+  .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  img {
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .content {
+    padding: 5%;
+  }
+
+  .price {
+    display: flex;
+    align-items: baseline;
+    margin: 0.5rem 0;
+
+    &-original {
+      text-decoration: line-through;
+      margin-right: 7px;
+    }
+
+    &-discounted {
+      font-size: 15px;
+      color: $text2;
+    }
+  }
+
+  .rating-stock {
+    display: flex;
+    justify-content: flex-start;
+
+    & > div:first-child {
+      margin-right: 5px;
+    }
+  }
+}

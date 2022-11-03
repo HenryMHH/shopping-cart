@@ -1,0 +1,59 @@
+@import '../../style/variable.module.scss';
+
+.header {
+  background: linear-gradient(-180deg, #f53d2d, #f63);
+  color: $text;
+
+  &.login {
+    background: white;
+    color: #ee4d2d;
+
+    .logo {
+      a {
+        color: #ee4d2d;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .logo {
+    a {
+      font-size: 40px;
+      font-family: map-get($map: $fonts, $key: kosugiMaru);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $text;
+
+      svg {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .functionality {
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        margin: 0 0.5rem;
+
+        &.cart {
+          font-size: 1.5rem;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: $text;
+      }
+    }
+  }
+}

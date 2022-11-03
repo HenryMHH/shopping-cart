@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 1200px;
+  max-width: 95vw;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.category {
+  width: 200px;
+  margin-right: 20px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
