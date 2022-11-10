@@ -1,0 +1,55 @@
+.popup {
+  background-color: white;
+  width: 240px;
+
+  .thumbnail {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 12px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+
+    .title {
+      width: 80%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding-left: 5px;
+    }
+
+    .price {
+      color: #ee4d2d;
+      margin-left: auto;
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    font-size: 12px;
+
+    .total {
+      color: #929292;
+      width: 100%;
+      text-align: center;
+    }
+    a {
+      width: 40%;
+      min-width: 40%;
+
+      .button {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+  }
+}

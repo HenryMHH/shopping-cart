@@ -1,0 +1,25 @@
+.button {
+  outline: none;
+  padding: 0 0.625rem;
+  border: 1px solid;
+  width: 100%;
+  border-radius: 0.125rem;
+  height: 2.5rem;
+  min-width: 8.75rem;
+  cursor: pointer;
+  border-color: #ee4d2d;
+
+  &:hover {
+    opacity: 0.91;
+  }
+
+  &.normal {
+    color: #fff;
+    background-color: #ee4d2d;
+  }
+
+  &.cancel {
+    background-color: #fff;
+    color: #ee4d2d;
+  }
+}

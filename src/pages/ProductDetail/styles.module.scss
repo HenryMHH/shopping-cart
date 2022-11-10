@@ -1,0 +1,132 @@
+.container {
+  width: 1200px;
+  max-width: 95vw;
+  margin: 30px auto 0;
+  display: flex;
+  background: white;
+  padding: 1rem;
+
+  .img {
+    width: 450px;
+    max-width: 50%;
+    flex-shrink: 0;
+
+    &__box {
+      width: 100%;
+      padding-bottom: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  .info {
+    padding: 1rem;
+    width: 100%;
+
+    .title {
+      font-size: 30px;
+    }
+
+    .rating {
+      margin: 1rem 0;
+      color: #ee4d2d;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+
+      padding: 15px 20px;
+      background: #fafafa;
+      width: 100%;
+      box-sizing: border-box;
+
+      &__original {
+        text-decoration: line-through;
+        color: #929292;
+        margin-right: 10px;
+      }
+
+      &__discounted {
+        text-decoration: none;
+        font-size: 1.875rem;
+        font-weight: 500;
+        color: #ee4d2d;
+      }
+
+      &__tag {
+        color: white;
+        background: #ee4d2d;
+        padding: 3px 5px;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .description {
+    margin-top: 1rem;
+    min-height: 200px;
+    display: flex;
+    flex-wrap: nowrap;
+
+    & > div {
+      color: #929292;
+      white-space: nowrap;
+      width: 100px;
+    }
+  }
+
+  .amount {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 1rem 0;
+
+    & > div:first-child {
+      color: #929292;
+      width: 100px;
+    }
+
+    & > div:nth-child(2) {
+      display: flex;
+      align-items: center;
+
+      .count {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-color: rgba(0, 0, 0, 0.09);
+        height: 24px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        padding: 2px;
+        cursor: pointer;
+      }
+
+      .stock {
+        color: #757575;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .add-cart {
+    padding: 1rem 0;
+    &__button {
+      max-width: 200px;
+      margin-right: 1rem;
+    }
+
+    .return-button {
+      max-width: 200px;
+    }
+  }
+}

@@ -10,6 +10,7 @@ export type Product = {
   category: string;
   thumbnail: string;
   images: Array<string>;
+  message?: string;
 };
 
 export type ProductList = Product[];
@@ -18,6 +19,11 @@ export async function getProductList(): Promise<ProductList> {
   const result = await fetch('https://dummyjson.com/products?limit=100');
   const json = await result.json();
   const data: ProductList = json.products;
-  console.log(data[0]);
   return data;
+}
+
+export async function getProductDetail(id: string): Promise<Product> {
+  const result = await fetch(`https://dummyjson.com/products/${id}`);
+  const json: Product = await result.json();
+  return json;
 }

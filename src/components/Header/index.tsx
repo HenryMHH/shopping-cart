@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { CgShoppingCart } from 'react-icons/cg';
+import { FaRegUserCircle } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
+import { authContext } from '../../context/authContext';
+import { auth } from '../../firebase';
+import { productContext } from '../../context/productContext';
+import CartPopup from '../CartPopup';
 
 const Header = () => {
+  const { isAuth } = useContext(authContext);
+  const { cart } = useContext(productContext);
   const location = useLocation();
   const [isShowLoginAndSignUp, setIsShowLoginAndSignUp] = useState(true);
 
@@ -40,13 +47,28 @@ const Header = () => {
                 <Link to="/cart">
                   <CgShoppingCart />
                 </Link>
+                <div className={styles['cart__amount']}>{cart.length}</div>
+                <div className={styles['popup']}>
+                  <CartPopup />
+                </div>
               </li>
-              <li>
-                <Link to="/signUp">註冊</Link>
-              </li>
-              <li>
-                <Link to="/login">登入</Link>
-              </li>
+              {!isAuth ? (
+                <>
+                  <li>
+                    <Link to="/signUp">註冊</Link>
+                  </li>
+                  <li>
+                    <Link to="/login">登入</Link>
+                  </li>
+                </>
+              ) : (
+                <li className={styles['user']}>
+                  <Link to="/orders">
+                    <FaRegUserCircle />
+                    {auth.currentUser?.displayName}
+                  </Link>
+                </li>
+              )}
             </ul>
           )}
         </div>

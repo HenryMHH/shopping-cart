@@ -27,14 +27,14 @@ const ProductList = () => {
       <div className={styles['category']}>
         篩選類別
         {categoryList.map((category) => (
-          <div>
+          <div key={category}>
             <input type="checkbox" /> {category}
           </div>
         ))}
       </div>
       <div className={styles['product-list']}>
         {products.map((product) => (
-          <ProductItem product={product} />
+          <ProductItem key={product.id} product={product} />
         ))}
       </div>
     </div>

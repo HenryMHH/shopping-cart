@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Product } from '../../api/products';
 import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
+import { productContext } from '../../context/productContext';
 
 type Props = {
   product: Product;
 };
 
 const ProductItem: React.FC<Props> = ({ product }) => {
+  const { calculatePrice } = useContext(productContext);
   return (
     <Link className={styles['item']} to={`/products/${product.id}`}>
       <div className={styles['thumbnail']}>
@@ -18,7 +20,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
         <div className={styles['price']}>
           <span className={styles['price-original']}>${product.price}</span>
           <span className={styles['price-discounted']}>
-            ${Math.round((product.price * product.discountPercentage) / 100)}
+            ${calculatePrice(product.price, product.discountPercentage)}
           </span>
         </div>
         <div className={styles['rating-stock']}>

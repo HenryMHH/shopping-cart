@@ -1,6 +1,8 @@
 @import '../../style/variable.module.scss';
 
 .login {
+  display: flex;
+  align-items: center;
   min-height: 600px;
   padding: 50px 0;
   box-sizing: border-box;
@@ -42,7 +44,19 @@
   }
 
   form {
-    // margin-left: auto;
+    .form-control {
+      box-sizing: border-box;
+      width: 100%;
+      height: 2.5rem;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      border-radius: 2px;
+      // box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%);
+      &:focus-within {
+        border: 1px solid rgba(0, 0, 0, 0.54);
+      }
+    }
 
     .title {
       font-size: 20px;
@@ -56,5 +70,10 @@
     border-radius: 4px;
     overflow: hidden;
     padding: 0 30px 30px;
+  }
+
+  .note {
+    text-align: center;
+    margin: 1rem 0;
   }
 }

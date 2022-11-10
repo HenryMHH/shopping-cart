@@ -47,7 +47,51 @@
         margin: 0 0.5rem;
 
         &.cart {
-          font-size: 1.5rem;
+          font-size: 2rem;
+          position: relative;
+
+          .cart__amount {
+            position: absolute;
+            bottom: 60%;
+            left: 60%;
+            font-size: 12px;
+            border-radius: 50%;
+            text-align: center;
+            color: #ee4d2d;
+            background-color: white;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          &:hover {
+            .popup {
+              display: block;
+            }
+          }
+
+          .popup {
+            display: none;
+            position: absolute;
+            right: 0;
+            padding: 5px;
+            background-color: white;
+            box-shadow: 8px 8px 15px -1px rgba(0, 0, 0, 0.75);
+          }
+        }
+
+        &.user {
+          a {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            svg {
+              font-size: 2rem;
+              margin-right: 5px;
+            }
+          }
         }
       }
       a {
