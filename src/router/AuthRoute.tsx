@@ -6,7 +6,7 @@ const AuthRoute = () => {
   const { isAuth } = useContext(authContext);
 
   if (!isAuth) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/shopping-cart-demo/login" />;
   }
 
   return <Outlet />;

@@ -36,7 +36,7 @@ const Header = () => {
     >
       <div className={styles['container']}>
         <div className={styles['logo']}>
-          <Link to="/">
+          <Link to="/shopping-cart-demo/">
             <AiOutlineShopping />
             亨利購物
           </Link>
@@ -45,7 +45,7 @@ const Header = () => {
           {isShowLoginAndSignUp && (
             <ul>
               <li className={styles['cart']}>
-                <Link to="/cart">
+                <Link to="/shopping-cart-demo/cart">
                   <CgShoppingCart />
                 </Link>
                 <div className={styles['cart__amount']}>{cart.length}</div>
@@ -56,15 +56,15 @@ const Header = () => {
               {!isAuth ? (
                 <>
                   <li>
-                    <Link to="/signUp">註冊</Link>
+                    <Link to="/shopping-cart-demo/signUp">註冊</Link>
                   </li>
                   <li>
-                    <Link to="/login">登入</Link>
+                    <Link to="/shopping-cart-demo/login">登入</Link>
                   </li>
                 </>
               ) : (
                 <li className={styles['user']}>
-                  <Link to="/orders">
+                  <Link to="/shopping-cart-demo/orders">
                     <FaRegUserCircle />
                     {auth.currentUser?.displayName}
                   </Link>

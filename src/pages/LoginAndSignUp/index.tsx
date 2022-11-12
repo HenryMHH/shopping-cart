@@ -46,7 +46,7 @@ const LoginAndSignUp = () => {
   }, [pathname]);
 
   if (isAuth) {
-    return <Navigate to="/" />;
+    return <Navigate to="/shopping-cart-demo/" />;
   }
 
   return (
@@ -100,12 +100,12 @@ const LoginAndSignUp = () => {
           <div className={styles['note']}>
             {isLoginPage && (
               <>
-                還沒有帳號嗎？<Link to="/signUp">註冊</Link>
+                還沒有帳號嗎？<Link to="/shopping-cart-demo/signUp">註冊</Link>
               </>
             )}
             {isSignUpPage && (
               <>
-                已經有帳號了？<Link to="/login">登入</Link>
+                已經有帳號了？<Link to="/shopping-cart-demo/login">登入</Link>
               </>
             )}
           </div>

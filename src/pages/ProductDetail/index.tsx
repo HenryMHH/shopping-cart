@@ -23,7 +23,7 @@ const ProductDetail = () => {
       setProductData(result);
     } catch (error) {
       alert('找無此商品資訊');
-      navigate('/products');
+      navigate('/shopping-cart-demo/products');
     }
   }
 

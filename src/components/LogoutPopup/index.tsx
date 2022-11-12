@@ -10,7 +10,7 @@ const LogoutPopup = () => {
   const navigate = useNavigate();
 
   function handleNavigation() {
-    navigate('/orders');
+    navigate('/shopping-cart-demo/orders');
   }
 
   return (

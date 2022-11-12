@@ -25,7 +25,7 @@ const CartPopup = () => {
       <div className={styles['footer']}>
         <div className={styles['total']}>共有 {cart.length} 項</div>
 
-        <Link to="/cart">
+        <Link to="/shopping-cart-demo/cart">
           <Button className={styles['button']}>查看購物車</Button>
         </Link>
       </div>

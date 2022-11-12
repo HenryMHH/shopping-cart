@@ -53,7 +53,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
     try {
       await signOut(auth);
       alert('登出成功！');
-      navigate('/');
+      navigate('/shopping-cart-demo/');
     } catch (error) {
       alert((error as Error).message);
     }

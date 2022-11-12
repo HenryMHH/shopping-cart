@@ -20,7 +20,7 @@ const ProductProvider = ({ children }: Props) => {
   function handleAddCart(product: Product, amount: number) {
     if (!isAuth) {
       alert('請先登入會員！');
-      return navigate('/login');
+      return navigate('/shopping-cart-demo/login');
     }
 
     const tempCart = [...cart];

@@ -18,16 +18,22 @@ function App() {
         <ProductProvider>
           <Layout>
             <Routes>
-              <Route path="/login" element={<LoginAndSignUp />} />
-              <Route path="/signUp" element={<LoginAndSignUp />} />
-              <Route path="/" element={<ProductList />} />
+              <Route
+                path="/shopping-cart-demo/login"
+                element={<LoginAndSignUp />}
+              />
+              <Route
+                path="/shopping-cart-demo/signUp"
+                element={<LoginAndSignUp />}
+              />
+              <Route path="/shopping-cart-demo" element={<ProductList />} />
               <Route path="/products" element={<ProductList />} />
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/" element={<AuthRoute />}>
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/orders" element={<Order />} />
               </Route>
-              <Route path="*" element={<Error />} />
+              <Route path="/shopping-cart-demo/*" element={<Error />} />
             </Routes>
           </Layout>
         </ProductProvider>
