@@ -9,34 +9,32 @@ import styles from './styles.module.scss';
 const ProductDetail = () => {
   const [amount, setAmount] = useState<number>(1);
   const [productData, setProductData] = useState<Product>();
-  const { handleAddCart, calculatePrice } = useContext(productContext);
+  const { handleAddCart, calculateDiscountedPrice } =
+    useContext(productContext);
   const params = useParams();
   const navigate = useNavigate();
 
-  const fetchProductDetail = useCallback(
-    async (id: string) => {
-      try {
-        const result = await getProductDetail(id);
-        if (result.message) {
-          throw result.message;
-        }
-        setProductData(result);
-      } catch (error) {
-        alert('找無此商品資訊');
-        navigate('/products');
+  async function fetchProductDetail(id: string) {
+    try {
+      const result = await getProductDetail(id);
+      if (result.message) {
+        throw result.message;
       }
-    },
-    [navigate],
-  );
+      setProductData(result);
+    } catch (error) {
+      alert('找無此商品資訊');
+      navigate('/products');
+    }
+  }
 
   useEffect(() => {
     if (params.id) {
       fetchProductDetail(params.id);
     }
-  }, [params, fetchProductDetail]);
+  }, [params]);
 
   if (!productData) {
-    return <div>Loading...</div>;
+    return null;
   }
 
   function handleAddAmount(currentAmount: number, stock: number) {
@@ -75,7 +73,11 @@ const ProductDetail = () => {
         <div className={styles['price']}>
           <div className={styles['price__original']}>${productData.price}</div>
           <div className={styles['price__discounted']}>
-            ${calculatePrice(productData.price, productData.discountPercentage)}
+            $
+            {calculateDiscountedPrice(
+              productData.price,
+              productData.discountPercentage,
+            )}
           </div>
           <div className={styles['price__tag']}>{discount}折</div>
         </div>

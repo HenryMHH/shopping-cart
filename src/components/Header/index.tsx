@@ -8,6 +8,7 @@ import { authContext } from '../../context/authContext';
 import { auth } from '../../firebase';
 import { productContext } from '../../context/productContext';
 import CartPopup from '../CartPopup';
+import LogoutPopup from '../LogoutPopup';
 
 const Header = () => {
   const { isAuth } = useContext(authContext);
@@ -67,6 +68,9 @@ const Header = () => {
                     <FaRegUserCircle />
                     {auth.currentUser?.displayName}
                   </Link>
+                  <div className={styles['popup']}>
+                    <LogoutPopup />
+                  </div>
                 </li>
               )}
             </ul>

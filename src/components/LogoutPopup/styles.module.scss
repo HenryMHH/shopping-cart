@@ -1,0 +1,24 @@
+.popup {
+  color: #929292;
+  width: 150px;
+  background-color: white;
+  box-shadow: 8px 8px 15px -1px rgba(0, 0, 0, 0.75);
+
+  color: black;
+  ul {
+    display: block;
+    padding: 0.5rem 0;
+
+    li {
+      color: #929292;
+      background-color: white;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: #00bfa5;
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ type Props = {
 };
 
 const ProductItem: React.FC<Props> = ({ product }) => {
-  const { calculatePrice } = useContext(productContext);
+  const { calculateDiscountedPrice } = useContext(productContext);
   return (
     <Link className={styles['item']} to={`/products/${product.id}`}>
       <div className={styles['thumbnail']}>
@@ -20,7 +20,11 @@ const ProductItem: React.FC<Props> = ({ product }) => {
         <div className={styles['price']}>
           <span className={styles['price-original']}>${product.price}</span>
           <span className={styles['price-discounted']}>
-            ${calculatePrice(product.price, product.discountPercentage)}
+            $
+            {calculateDiscountedPrice(
+              product.price,
+              product.discountPercentage,
+            )}
           </span>
         </div>
         <div className={styles['rating-stock']}>

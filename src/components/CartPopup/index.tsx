@@ -5,7 +5,7 @@ import Button from '../Button';
 import styles from './styles.module.scss';
 
 const CartPopup = () => {
-  const { cart, calculatePrice } = useContext(productContext);
+  const { cart, calculateDiscountedPrice } = useContext(productContext);
 
   return (
     <div className={styles['popup']}>
@@ -17,7 +17,7 @@ const CartPopup = () => {
           ></div>
           <div className={styles['title']}>{item.title}</div>
           <div className={styles['price']}>
-            ${calculatePrice(item.price, item.discountPercentage)}
+            ${calculateDiscountedPrice(item.price, item.discountPercentage)}
           </div>
         </div>
       ))}

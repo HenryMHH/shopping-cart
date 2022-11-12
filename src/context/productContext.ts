@@ -5,9 +5,14 @@ import { Cart } from '../components/ProductProvider';
 type ProductContext = {
   cart: Cart[];
   handleAddCart: (product: Product, amount: number) => void;
-  calculatePrice: (price: number, discountPercentage: number) => number;
+  calculateDiscountedPrice: (
+    price: number,
+    discountPercentage: number,
+  ) => number;
   handleRemoveItemFromCart: (id: number) => void;
   handleEditAmount: (id: number, action: 'plus' | 'minus') => void;
+  calculateTotalPrice: () => number;
+  handleClearCart: () => void;
 };
 
 export const productContext = createContext({} as ProductContext);

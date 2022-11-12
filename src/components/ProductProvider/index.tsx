@@ -1,5 +1,7 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Product } from '../../api/products';
+import { authContext } from '../../context/authContext';
 import { Provider } from '../../context/productContext';
 
 type Props = {
@@ -11,9 +13,16 @@ export interface Cart extends Product {
 }
 
 const ProductProvider = ({ children }: Props) => {
+  const { isAuth } = useContext(authContext);
+  const navigate = useNavigate();
   const [cart, setCart] = useState<Cart[]>([]);
 
   function handleAddCart(product: Product, amount: number) {
+    if (!isAuth) {
+      alert('請先登入會員！');
+      return navigate('/login');
+    }
+
     const tempCart = [...cart];
     const index = tempCart.findIndex((item) => item.id === product.id);
     const isItemAlreadyInCart = index > -1;
@@ -32,8 +41,13 @@ const ProductProvider = ({ children }: Props) => {
   function handleRemoveItemFromCart(id: number) {
     const tempCart = [...cart];
     const index = tempCart.findIndex((item) => item.id === id);
-    tempCart.splice(index);
-    setCart(tempCart);
+    tempCart.splice(index, 1);
+    const isConfirmRemove = window.confirm('確定要把此商品從購物車中移除嗎？');
+    if (isConfirmRemove) setCart(tempCart);
+  }
+
+  function handleClearCart() {
+    setCart([]);
   }
 
   function handleEditAmount(id: number, action: 'plus' | 'minus') {
@@ -58,18 +72,35 @@ const ProductProvider = ({ children }: Props) => {
     }
   }
 
-  function calculatePrice(price: number, discountPercentage: number): number {
+  function calculateDiscountedPrice(
+    price: number,
+    discountPercentage: number,
+  ): number {
     const discount = Math.round(100 - discountPercentage) / 10;
     const discountedPrice = Math.floor((price * discount) / 10);
     return discountedPrice;
   }
 
+  function calculateTotalPrice() {
+    const initialValue = 0;
+    const totalPrice = cart
+      .map(
+        (item) =>
+          calculateDiscountedPrice(item.price, item.discountPercentage) *
+          item.amount,
+      )
+      .reduce((a, b) => a + b, initialValue);
+    return totalPrice || 0;
+  }
+
   const value = {
     cart,
     handleAddCart,
-    calculatePrice,
     handleRemoveItemFromCart,
+    handleClearCart,
     handleEditAmount,
+    calculateDiscountedPrice,
+    calculateTotalPrice,
   };
   return <Provider value={value}>{children}</Provider>;
 };

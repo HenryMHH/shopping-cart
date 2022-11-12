@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductList from './pages/ProductList';
 import Layout from './layout';
-import AccountDetail from './pages/AccountDetail';
 import Cart from './pages/Cart';
 import Error from './pages/Error';
 import LoginAndSignUp from './pages/LoginAndSignUp';
@@ -14,9 +13,9 @@ import ProductProvider from './components/ProductProvider';
 
 function App() {
   return (
-    <AuthProvider>
-      <ProductProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
+        <ProductProvider>
           <Layout>
             <Routes>
               <Route path="/login" element={<LoginAndSignUp />} />
@@ -25,16 +24,15 @@ function App() {
               <Route path="/products" element={<ProductList />} />
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/" element={<AuthRoute />}>
-                <Route path="/account" element={<AccountDetail />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/orders" element={<Order />} />
               </Route>
               <Route path="*" element={<Error />} />
             </Routes>
           </Layout>
-        </BrowserRouter>
-      </ProductProvider>
-    </AuthProvider>
+        </ProductProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

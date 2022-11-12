@@ -6,6 +6,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import React, { ReactNode, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Provider } from '../../context/authContext';
 import { auth } from '../../firebase';
 
@@ -15,6 +16,7 @@ interface Props {
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
   const [isAuth, setIsAuth] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const removeListener = onAuthStateChanged(auth, (user) => {
@@ -50,6 +52,8 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   async function handleLogout() {
     try {
       await signOut(auth);
+      alert('登出成功！');
+      navigate('/');
     } catch (error) {
       alert((error as Error).message);
     }

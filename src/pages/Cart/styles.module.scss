@@ -1,26 +1,71 @@
 .cart {
-  width: 900px;
-  max-width: 95vw;
+  width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
+
+  .header {
+    display: flex;
+    width: 100%;
+    color: #929292;
+    background-color: #fafafa;
+    padding: 1rem 8px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+
+    & > div {
+      font-size: 18px;
+    }
+
+    &__merchant {
+      flex: 3;
+      text-align: center;
+    }
+    &__price,
+    &__amount,
+    &__total,
+    &__delete {
+      flex: 1;
+      text-align: center;
+    }
+  }
 
   &__item {
     background-color: #fafafa;
     display: flex;
     align-items: center;
+    padding: 5px 8px;
     .thumbnail {
       width: 100px;
       height: 100px;
       background-position: center;
       background-size: cover;
+      flex-shrink: 0;
     }
-  }
 
-  .functionality {
+    .merchant {
+      flex: 3;
+      display: flex;
+      align-items: center;
+      .thumbnail {
+        margin-right: 10px;
+      }
+    }
+    .price,
+    .amount,
+    .total,
+    .delete {
+      flex: 1;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
     .amount {
       display: flex;
       align-items: center;
+      justify-content: center;
       flex-wrap: nowrap;
       margin: 1rem 0;
+      flex-shrink: 0;
 
       & > div:first-child {
         display: flex;
@@ -49,6 +94,56 @@
           margin-left: 1rem;
         }
       }
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__original {
+        text-decoration: line-through;
+        color: #929292;
+        margin-right: 10px;
+      }
+
+      &__discounted {
+        text-decoration: none;
+      }
+    }
+
+    .total {
+      color: #ee4d2d;
+    }
+
+    .delete {
+      cursor: pointer;
+    }
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 1000px;
+    max-width: 95%;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+
+    span {
+      color: #ee4d2d;
+      font-size: 2rem;
+    }
+
+    .button {
+      max-width: 300px;
+      margin-left: 1rem;
+      font-size: 1.5rem;
+      height: 50px;
     }
   }
 }

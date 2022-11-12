@@ -40,10 +40,10 @@
   }
 
   .functionality {
-    ul {
+    & > ul {
       display: flex;
       align-items: center;
-      li {
+      & > li {
         margin: 0 0.5rem;
 
         &.cart {
@@ -83,6 +83,7 @@
         }
 
         &.user {
+          position: relative;
           a {
             display: flex;
             align-items: center;
@@ -91,6 +92,18 @@
               font-size: 2rem;
               margin-right: 5px;
             }
+          }
+          &:hover {
+            .popup {
+              display: block;
+            }
+          }
+
+          .popup {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
           }
         }
       }
