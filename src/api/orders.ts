@@ -51,6 +51,5 @@ export async function getOrders(uid: string) {
     ...(item.data() as Order),
     docId: item.id,
   }));
-  console.log(orders);
   return orders;
 }
