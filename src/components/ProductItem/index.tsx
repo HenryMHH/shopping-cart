@@ -11,7 +11,10 @@ type Props = {
 const ProductItem: React.FC<Props> = ({ product }) => {
   const { calculateDiscountedPrice } = useContext(productContext);
   return (
-    <Link className={styles['item']} to={`/products/${product.id}`}>
+    <Link
+      className={styles['item']}
+      to={`/shopping-cart-demo/products/${product.id}`}
+    >
       <div className={styles['thumbnail']}>
         <img src={product.thumbnail} alt="thumbnail" />
       </div>
