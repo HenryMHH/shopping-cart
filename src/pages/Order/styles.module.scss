@@ -11,7 +11,7 @@
   &__item {
     display: flex;
     align-items: center;
-    padding: 5px 8px;
+    padding: 5px 0px;
 
     .thumbnail {
       width: 100px;
@@ -19,6 +19,18 @@
       background-position: center;
       background-size: cover;
       flex-shrink: 0;
+    }
+
+    .merchant {
+      margin-left: 1rem;
+
+      .amount {
+        margin-top: 5px;
+      }
+    }
+
+    .total {
+      margin-left: auto;
     }
   }
 

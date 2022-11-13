@@ -25,7 +25,7 @@ const Order = (props: Props) => {
   }, [isAuth]);
 
   function getNormalizedDate(date: Date) {
-    return date.toISOString().split('T')[0];
+    return date.toISOString().split('T').shift();
   }
 
   return (
@@ -38,8 +38,10 @@ const Order = (props: Props) => {
                 className={styles['thumbnail']}
                 style={{ backgroundImage: `url(${i.thumbnail})` }}
               ></div>
-              <div className={styles['title']}>{i.title}</div>
-              <div className={styles['amount']}>{i.amount}</div>
+              <div className={styles['merchant']}>
+                <div className={styles['title']}>{i.title}</div>
+                <div className={styles['amount']}>x{i.amount}</div>
+              </div>
               <div className={styles['total']}>
                 {i.amount *
                   calculateDiscountedPrice(i.price, i.discountPercentage)}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
 import ProductList from './pages/ProductList';
 import Layout from './layout';
 import Cart from './pages/Cart';
@@ -13,7 +13,7 @@ import ProductProvider from './components/ProductProvider';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AuthProvider>
         <ProductProvider>
           <Layout>
@@ -32,7 +32,7 @@ function App() {
           </Layout>
         </ProductProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
