@@ -13,7 +13,7 @@ import ProductProvider from './components/ProductProvider';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AuthProvider>
         <ProductProvider>
           <Layout>
@@ -32,7 +32,7 @@ function App() {
           </Layout>
         </ProductProvider>
       </AuthProvider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
